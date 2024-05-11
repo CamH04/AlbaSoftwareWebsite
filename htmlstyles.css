@@ -1,0 +1,30 @@
+body{
+    background-image: linear-gradient(-150deg,#ef38d0d6,rgba(56,71,239,0) 900px);
+    background-size: auto,auto;
+    background-color: #363636;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+.text{
+    display: block; 
+    text-align: center; 
+    position: relative; 
+    translate: none; 
+    rotate: none; 
+    scale: none; 
+    transform: translate(0px); 
+    opacity: 1; 
+    visibility: inherit;
+}
+
+#gif{
+    height: 5rem;
+
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 15px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.9px);
+    -webkit-backdrop-filter: blur(6.9px);
+    border: 1px solid rgba(255, 255, 255, 1)
+}
