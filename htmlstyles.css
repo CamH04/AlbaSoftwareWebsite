@@ -5,7 +5,10 @@ body{
     background-attachment: scroll;
     background-repeat: no-repeat;
 }
-
+.center{
+    display: flex;
+    justify-content: center;
+}
 .text{
     display: block; 
     text-align: center; 
@@ -17,14 +20,8 @@ body{
     opacity: 1; 
     visibility: inherit;
 }
-
-#gif{
-    height: 5rem;
-
-    background: rgba(255, 255, 255, 0.25);
-    border-radius: 15px;
-    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6.9px);
-    -webkit-backdrop-filter: blur(6.9px);
-    border: 1px solid rgba(255, 255, 255, 1)
+video{
+    object-fit: fill;
+    height: 12rem;
+    width: 100%;
 }
