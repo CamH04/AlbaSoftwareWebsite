@@ -1,9 +1,21 @@
-body{
-    background-image: linear-gradient(-150deg,#ef38d0d6,rgba(56,71,239,0) 900px);
+*{
+    color: aliceblue;
+}
+body {
+    background-image: url("https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzRvaGxjam93ejM5aWRnaWJyNnBud214Mjc0bW40ZjJoZDFpdXB6OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XN7IXT2P68VNvTr2SE/giphy.gif");
+    min-height: 500px; 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content{
+    background-image: linear-gradient(-150deg,#1ae5b6de,rgba(56,71,239,0) 900px);
     background-size: auto,auto;
-    background-color: #363636;
+    background-color: #ff00d0;
     background-attachment: scroll;
     background-repeat: no-repeat;
+    padding: 2rem;
 }
 .center{
     display: flex;
@@ -20,8 +32,10 @@ body{
     opacity: 1; 
     visibility: inherit;
 }
-video{
-    object-fit: fill;
-    height: 12rem;
-    width: 100%;
+.underline{
+    text-decoration: underline;
+}
+.go-down{
+    margin-bottom: 10rem;
+    margin-top:10rem;
 }
