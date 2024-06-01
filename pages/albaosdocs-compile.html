@@ -40,26 +40,37 @@
 
                     
                     <div class="col-lg-12">
-                        <h1>Getting Started</h1>
+                        <h1>Compiling Iso / Kernel In Linux</h1>
                     </div>
                     <p>Note: If you see an issue not noted in these docs, you can open an issue on <a href="https://github.com/CamH04/AlbaOS">Github</a></p>
                     <br>
                     <br>
                     <br>
-                    <section class="VM-START">
-                        <h3>Get Up And Running On A Virtual Machine!</h3>
+                    <section class="ISO-COMPILE">
+                        <h3>Packages Needed</h3>
                         <ol>
-                            <li>Download a virual machine software, i recommend <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> or <a href="https://www.qemu.org/">Qemu</a></li>
-                            <li>Download The Iso File for AlbaOS from <a href="https://github.com/CamH04/AlbaOS">Github</a></li>
-                            <li>Configure virtual machine with albaos.iso as the boot drive</li>
-                            <img src="media/docs/setup1.png" height="250px">
-                            <p>If any issues occur on startup with a triple fault: removing the network card in the virtual machine's settings should fix it</p>
-                            <li>Allocate the reccomended amount of cores and memory based on your computer specs, this os wont need much though</li>
-                            <img src="media/docs/setup2.png" height="250px">
-                            <li>Create Virtual hard disk</li>
-                            <img src="media/docs/setup3.png" height="250px">
-                            <li>Finish Up</li>
-                            <li>Launch virtual machine!</li>
+                            <li>g++</li>
+                            <li>binutils</li>
+                            <li>libc-dev-i386</li>
+                            <li>grub-common</li>
+                            <li>xorriso</li>
+                        </ol>
+                        <p>Note: grub-common may be unavailable, if so grub-legacy or grub2 should work</p>
+                        <p>
+                            g++ is a the compiler for c++, 
+                            binutils is a binary manager as well as managing the assembaly code,
+                            libc-dev-i386 is the 32 bit architecture for the kernel,
+                            grub legacy allows for multibooting and installing the os into grub,
+                            xorriso so the digital disc file (.iso) can be generated
+                        </p>
+                        <br>
+                        <br>
+                        <br>
+                        <h3>Compiling</h3>
+                        <ol>
+                            <li>cd into /AlbaOS</li>
+                            <li>use command: " make clean " to remove all generated .o , .bin and ,iso files</li>
+                            <li>use command: " make albaos.iso " to generate all needed files</li>
                         </ol>
                     </section>
                 
