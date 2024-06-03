@@ -10,9 +10,8 @@ body {
     background-size: cover;
 }
 .content{
-    background-image: linear-gradient(-150deg,#00ffc3de,rgba(0, 255, 195, 0) 900px);
     background-size: auto,auto;
-    background-color: #ff00d0;
+    background-color: #181818;
     background-attachment: scroll;
     background-repeat: no-repeat;
     padding: 2rem;
