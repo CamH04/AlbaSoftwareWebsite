@@ -1,2 +1,2 @@
-cd alba
+cd site
 npm run dev
