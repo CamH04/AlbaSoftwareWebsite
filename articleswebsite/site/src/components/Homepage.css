@@ -1,0 +1,24 @@
+.homepage {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.homepage h2 {
+  text-align: center;
+  font-size: 2em;
+}
+
+.homepage .section {
+  margin-top: 40px;
+}
+
+.homepage h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.homepage p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
