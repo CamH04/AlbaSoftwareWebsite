@@ -1,0 +1,30 @@
+.menu {
+  position: sticky;
+  top: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #f4f4f4;
+  padding-top: 20px;
+  border-right: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu li {
+  margin-bottom: 15px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #007BFF;
+  font-weight: bold;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
