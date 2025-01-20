@@ -4,7 +4,6 @@ import './Homepage.css';
 const Homepage = () => {
   return (
     <div className="homepage">
-      <h2>Alba Articles Home</h2>
       <p>
         This is the place where i write things
       </p>

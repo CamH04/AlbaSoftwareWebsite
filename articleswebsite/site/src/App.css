@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center content vertically */
+  min-height: 100vh; /* Ensure full viewport height */
 }
 
 .App-header {
@@ -19,6 +21,7 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  justify-content: center; /* Center content horizontally */
 }
 
 .menu {
@@ -57,21 +60,24 @@
   padding: 20px;
   max-width: 800px;
   text-align: left;
+  background-color: #f9f9f9; /* Light background for readability */
+  border-radius: 8px; /* Optional: Add rounded corners */
 }
 
-h1,h2 {
+h1,
+h2 {
   color: #333;
 }
-
 
 code {
   background-color: #f4f4f4;
   padding: 5px;
 }
 
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .main-content {
-    flex-direction: column;
+    flex-direction: column; /* Stack menu and article on smaller screens */
   }
 
   .menu {

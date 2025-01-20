@@ -1,6 +1,12 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
 .menu {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   width: 200px;
   height: 100vh;
   background-color: #f4f4f4;
@@ -8,6 +14,44 @@
   border-right: 2px solid #ccc;
   display: flex;
   flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
+}
+
+.menu.collapsed {
+  width: 50px;
+}
+
+.menu .collapse-btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.menu .collapse-btn:hover {
+  background-color: #0056b3;
+}
+
+.search-form {
+  transition: all 0.3s ease;
+}
+
+.search-input {
+  transition: width 0.3s ease;
+}
+
+.search-form.collapsed {
+  display: none;
+}
+
+.search-input.collapsed {
+  width: 0;
+  padding: 0;
+  border: none;
 }
 
 .menu ul {
@@ -23,8 +67,47 @@
   text-decoration: none;
   color: #007BFF;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.menu .menu-icon {
+  margin-right: 10px;
+  font-size: 18px;
 }
 
 .menu a:hover {
   text-decoration: underline;
+}
+
+.menu.collapsed .menu-icon {
+  margin-right: 0;
+}
+
+.menu.collapsed li {
+  justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .menu {
+    width: 100%;
+    height: auto;
+    position: static;
+    padding-top: 10px;
+    border-right: none;
+    box-shadow: none;
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .menu.collapsed {
+    width: 100%;
+  }
 }

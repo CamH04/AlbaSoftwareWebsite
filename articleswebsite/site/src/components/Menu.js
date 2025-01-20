@@ -1,18 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import './Menu.css';
 
 const Menu = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const menuItems = [
+    { text: 'Home', link: '/', icon: '𓅓' },
+    { text: 'I dislike Electron and React Native and ill cry about it', link: '/article/desktopapps.md', icon: '💻' },
+    { text: 'How To Make Your Own Command For The AlbaOS ACL', link: '/article/htmyoc.md', icon: '💻' },
+    { text: 'How to Get Into Developing An Operating system', link: '/article/startosdev.md', icon: '💻' },
+    { text: 'THE FNV-1A Hash In A Command Line System In The Case Of AlbaOS', link: '/article/fnv1a.md', icon: '💻' },
+  ];
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+  const filteredItems = menuItems.filter(item =>
+    item.text.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    console.log("Searching for:", searchQuery);
+  };
+  const toggleMenu = () => {
+    setIsCollapsed(prevState => !prevState);
+  };
   return (
-    <nav className="menu">
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/article/htmyoc.md">How To Make Your Own Command For The AlbaOS ACL</Link></li>
-        <li><Link to="/article/startosdev.md">How to Get Into Developing An Operating system</Link></li>
-        <li><Link to="/article/fnv1a.md">THE FNV-1A Hash In A Command Line System In The Case Of AlbaOS</Link></li>
-      </ul>
-    </nav>
+    <div className="container">
+      <nav className={`menu ${isCollapsed ? 'collapsed' : ''}`}>
+        <button className="collapse-btn" onClick={toggleMenu}>
+          {isCollapsed ? '-' : '-'}
+        </button>
+        <form onSubmit={handleSearchSubmit} className={`search-form ${isCollapsed ? 'collapsed' : ''}`}>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+            className={`search-input ${isCollapsed ? 'collapsed' : ''}`}
+          />
+          {!isCollapsed && <button type="submit">Search</button>}
+        </form>
+        <ul>
+          {filteredItems.length > 0 ? (
+            filteredItems.map((item, index) => (
+              <li key={index}>
+                <Link to={item.link}>
+                  <span className="menu-icon">{item.icon}</span>
+                  {!isCollapsed && item.text}
+                </Link>
+              </li>
+            ))
+          ) : (
+            <li>No Results Found</li>
+          )}
+        </ul>
+      </nav>
+    </div>
   );
 };
 
