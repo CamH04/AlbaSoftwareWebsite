@@ -3,7 +3,7 @@
 I dislike Electron and React Native and ill cry about it
 ==============================================
 
-### 17th January 2025, [Cameron](https://candid-quokka-da2c12.netlify.app/)
+### 17th January 2025, [Cameron](https://camhdeveloper.netlify.app/)
 
 
 To preface this i am just a moron on the internet, if you feel like im ignorant in places, i am , please just let me know so i can learn :)

@@ -3,7 +3,7 @@
 How to Get Into Developing An Operating system
 ==============================================
 
-### 28th June 2024, [Cameron](https://candid-quokka-da2c12.netlify.app/)
+### 28th June 2024, [Cameron](https://camhdeveloper.netlify.app/)
 
 
 
@@ -44,7 +44,7 @@ This is a comprehensive paper on how to get started with OsDev, it is way more o
 
 
 
-If you have any further questions or any other resources you would like to share please feel free to get in touch [here](https://candid-quokka-da2c12.netlify.app/Contact)
+If you have any further questions or any other resources you would like to share please feel free to get in touch [here](https://camhdeveloper.netlify.app/Contact)
 
 
 

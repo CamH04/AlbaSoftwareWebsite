@@ -4,7 +4,7 @@
 How To Make Your Own Command For The AlbaOS ACL
 ===============================================
 
-### 22nd June 2024, [Cameron](https://candid-quokka-da2c12.netlify.app/)
+### 22nd June 2024, [Cameron](https://camhdeveloper.netlify.app/)
 
 
 
@@ -15,7 +15,7 @@ How To Make Your Own Command For The AlbaOS ACL
 
 So, you want to make your own commands for the ACL? Well, you’ve come to the right place! AlbaOs is a mostly command line-based OS and therefore as an open source OS I have decided and important article would be to show you how to make your own commands for AlbaOS.
 
-To start if you navigate to the CLI source file at \[ src/cli.cpp \] you will see the includes, namespaces , forward declarations and declarations of some functions that exist in \[ kernel.cpp \]. After all the declarations, the fun begins. This is where you can implement a function with the desired functionality of the command you want to make.
+To start if you navigate to the CLI source file at [ src/cli.cpp ](https://github.com/CamH04/AlbaOS/blob/master/src/cli.cpp) you will see the includes, namespaces , forward declarations and declarations of some functions that exist in [ kernel.cpp ](https://github.com/CamH04/AlbaOS/blob/master/src/kernel.cpp). After all the declarations, the fun begins. This is where you can implement a function with the desired functionality of the command you want to make.
 
 This function must contain the parameters (char\* args, CommandLine\* cli) if this is the function you wish to interact with when the command is called, this sort of acts like a main function for the command (horrible description, im sorry). These parameters contain a pointer to the argument string and a pointer to the CLI.
 
