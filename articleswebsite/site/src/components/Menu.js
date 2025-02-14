@@ -8,10 +8,12 @@ const Menu = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const menuItems = [
     { text: 'Home', link: '/', icon: '𓅓' },
-    { text: 'I dislike Electron and React Native and ill cry about it', link: '/article/desktopapps.md', icon: '💻' },
-    { text: 'How To Make Your Own Command For The AlbaOS ACL', link: '/article/htmyoc.md', icon: '💻' },
+    { text: 'APM vs APCI : What Is The Difference', link: '/article/apmvsacpi.md', icon: '💻' },
     { text: 'How to Get Into Developing An Operating system', link: '/article/startosdev.md', icon: '💻' },
     { text: 'THE FNV-1A Hash In A Command Line System In The Case Of AlbaOS', link: '/article/fnv1a.md', icon: '💻' },
+    { text: 'How To Make Your Own Command For The AlbaOS ACL', link: '/article/htmyoc.md', icon: '💻' },
+    { text: 'I dislike Electron and React Native and ill cry about it', link: '/article/desktopapps.md', icon: '💻' },
+    { text: 'My friend doesnt like MicroPy, this is his rant', link: '/article/micropy.md', icon: '💻' }
   ];
 
   const handleSearchChange = (event) => {
