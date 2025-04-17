@@ -13,7 +13,7 @@ const Menu = () => {
     { text: 'THE FNV-1A Hash In A Command Line System In The Case Of AlbaOS', link: '/article/fnv1a.md', icon: '💻' },
     { text: 'How To Make Your Own Command For The AlbaOS ACL', link: '/article/htmyoc.md', icon: '💻' },
     { text: 'I dislike Electron and React Native and ill cry about it', link: '/article/desktopapps.md', icon: '💻' },
-    { text: 'My friend doesnt like MicroPy, this is his rant', link: '/article/micropy.md', icon: '💻' }
+    { text: 'My friend doesnt like MicroPy, this is his rant', link: '/article/micropy.md', icon: '💻' },
     { text: 'Goldshadow Cybersecurity Analysis', link: '/article/cyber1.md', icon: '💻' }
   ];
 
