@@ -1,3 +1,4 @@
+
 * * *
 
 APM vs APCI : What Is The Difference
@@ -15,8 +16,54 @@ As this standard was developed in '92 it is widley considered to be the first po
 
 ## Implementing APM In A 32 Bit System
 
-AlbaOS is a 32 bit, x86 system and will be implementing the APM standard in such a way that it is compatible with such a system. To summarise a high level view would go as follows: Check if the BIOS is compatible with APM, Connect and init the APM interface and then enables power management on the APM interface. When a power off function is called it will send a power request to the BIOS through BIOS interrupt 0x15. This then can be used to other APM shenanigans through subfuncitons in the AX register.
+AlbaOS is a 32 bit, x86 system and will be implementing the APM standard in such a way that it is compatible with such a system. To summarise a high level view would go as follows: Check if the BIOS is compatible with APM, Connect and init the APM interface and then enables power management on the APM interface. When a power off function is called it will send a power request to the BIOS through BIOS interrupt 0x15. This then can be used to other APM shenanigans through sub-functions in the AX register (such as 0x5307 allowing you to set the power state or 0x530D allowing you to get the APM version).
 
-## Code Explanation
+## APM Code Explanation
 
 [My implementation of the APM standard in AlbaOS](https://github.com/CamH04/AlbaOS/blob/34fc37e3b9f30dfd2b9fe131f295f3114ed33c2b/src/hardwarecommunication/power.cpp#L18)
+
+The explained code was written in Jan 31 2025 (commit 237cbb5) so may be outdated or broken.
+The implementation of APM is quite small only streaching across two files [power.cpp](https://github.com/CamH04/AlbaOS/blob/master/src/hardwarecommunication/power.cpp) and [apm_bios_call.s](https://github.com/CamH04/AlbaOS/blob/master/src/hardwarecommunication/apm_bios_call.s). This could have easily been completed in just the one c++ file however i prefer to split asm into seperate files for debugging and maintaining purposes.
+
+The ASM (.s) file is just passing 4 16 bit flags to the respective registers which then returns the result as well as the flags. This is all done in this way in order to be able to call it in the C++ file as an external function:
+```
+extern "C" {
+    uint16_t apm_bios_call(uint16_t ax, uint16_t bx, uint16_t cx, uint16_t dx);
+}
+```
+
+In the C++ file we start by doing a APM installation check (```apm_bios_call(0x5300) ```) and if supportted we then connect to the interface(```apm_bios_call(0x5303)```). We then enable power managment(```apm_bios_call(0x5308)```) to finish the init stages of APM.
+
+Once all that is done we can the call power off which works as follows
+```
+uint16_t ax = 0x5307;
+uint16_t bx = 0x0001;   // All devices
+uint16_t cx = 0x0003;   // Power state = OFF
+
+// make bios call
+asm volatile(
+    "int $0x15\n\t"
+    "setc %0\n\t"
+    : "=r"(APM_error)
+    : "a"(ax), "b"(bx), "c"(cx)
+    : "memory", "cc"
+);
+```
+
+## Some good APM links
+[Microsoft APM 1.2 Specs 1996](https://download.microsoft.com/download/1/6/1/161ba512-40e2-4cc9-843a-923143f3456c/apmv12.rtf)
+[Ralf Brown's Interrupt List (RBIL) APM BIOS Interrupt list link 1](
+https://www.ctyme.com/intr/cat-031.htm)
+[Ralf Brown's Interrupt List (RBIL) APM BIOS Interrupt list link 2](https://www.ctyme.com/intr/int-15.htm)
+
+
+
+## Intro To ACPI (Advanced Configuration and Power Interface)
+## Implementing ACPI In A 32 Bit System
+## ACPI Code Explanation
+
+
+
+
+## Analysis
+## Conclusion
