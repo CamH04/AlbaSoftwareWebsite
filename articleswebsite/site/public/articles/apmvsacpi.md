@@ -32,7 +32,7 @@ extern "C" {
 }
 ```
 
-In the C++ file we start by doing a APM installation check (```apm_bios_call(0x5300) ```) and if supportted we then connect to the interface(```apm_bios_call(0x5303)```). We then enable power managment(```apm_bios_call(0x5308)```) to finish the init stages of APM.
+In the C++ file we start by doing a APM installation check (```apm_bios_call(0x5300) ```) and if supported we then connect to the interface(```apm_bios_call(0x5303)```). We then enable power management(```apm_bios_call(0x5308)```) to finish the init stages of APM.
 
 Once all that is done we can the call power off which works as follows
 ```
@@ -51,19 +51,45 @@ asm volatile(
 ```
 
 ## Some good APM links
-[Microsoft APM 1.2 Specs 1996](https://download.microsoft.com/download/1/6/1/161ba512-40e2-4cc9-843a-923143f3456c/apmv12.rtf)
-[Ralf Brown's Interrupt List (RBIL) APM BIOS Interrupt list link 1](
++ [Microsoft APM 1.2 Specs 1996](https://download.microsoft.com/download/1/6/1/161ba512-40e2-4cc9-843a-923143f3456c/apmv12.rtf)
++ [Ralf Brown's Interrupt List (RBIL) APM BIOS Interrupt list link 1](
 https://www.ctyme.com/intr/cat-031.htm)
-[Ralf Brown's Interrupt List (RBIL) APM BIOS Interrupt list link 2](https://www.ctyme.com/intr/int-15.htm)
++ [Ralf Brown's Interrupt List (RBIL) APM BIOS Interrupt list link 2](https://www.ctyme.com/intr/int-15.htm)
 
 
 
 ## Intro To ACPI (Advanced Configuration and Power Interface)
+
+The ACPI standard was birthed in 1996 as a standardised abstraction for an operating system to manage power states instead of having to use direct BIOS calls. ACPI replaces the APM spec as it allows for more dynamic and intelligent power management schemes when compared to APM. This all stem from ACPI handing control to the OS.
+
+The OS can manage separate components power state, this is done by having a set of ACPI tables in which the hardware is ID’d as well as its specifications being inserted into these tables, these are the tables the OS interacts with to understand in what way to manage power states for the hardware. There are many sets of tables some of them being optional, I will only cover the ones listed as required by arm64 systems in the linux kernel as of Oct 2020 [Link Here](https://web.archive.org/web/20201020091509/https://www.kernel.org/doc/html/latest/arm64/acpi_object_usage.html).
+
++ DSDT (Differentiated System Description Table): Contains primary component definitions and compatible power management features
+
++ FADT (Fixed ACPI Description Table): Provides gives static component info and pointers to other ACPI tables
+
++ GTDT (Generic Timer Description Table): Provides OS info about generic timers, eg interrupt timer
+
++ MADT (Multiple APIC Description Table): Provides info about interrupt controllers
+
++ MCFG (Memory-mapped ConFiGuration space): Provides PCI/PCIe information
+
++ RSDP (Root System Description Pointer): Pointer to RSDT table
+
++ SPCR (Serial Port Console Redirection table): Gives info on serial port configuration
+
++ XSDT (eXtended System Description Table): More physical pointers of headers to other description tables.
+
+
+The tables are encoded into a language called AML (ACPI Machine Language) of which the OS has to decipher which then allows (when commands are interpreted) for the OS to be able to manage power directly.
+
 ## Implementing ACPI In A 32 Bit System
 ## ACPI Code Explanation
-
+## Good ACPI Links
++ [ACPI OSDevWiki](https://wiki.osdev.org/ACPI)
 
 
 
 ## Analysis
 ## Conclusion
+
