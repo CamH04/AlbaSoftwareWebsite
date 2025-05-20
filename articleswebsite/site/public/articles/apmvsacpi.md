@@ -84,9 +84,53 @@ The OS can manage separate components power state, this is done by having a set 
 The tables are encoded into a language called AML (ACPI Machine Language) of which the OS has to decipher which then allows (when commands are interpreted) for the OS to be able to manage power directly.
 
 ## Implementing ACPI In A 32 Bit System
+In its most simplistic form to turn a computer off using ACPI all you need is the PM1a_CNT, SLP_TYPa and SLP_EN values. We then perform an equivalent to outw(PM1a_CNT, SLP_TYPa | SLP_EN ); 1st parameter is just parsing the  PM1a_CNT value and the 2nd parameter is an  OR operation of the SLP_TYPa and  SLP_EN values which combines the two values into a single bitmask.
+
+### PM1a_CNT
+
+We start by getting the FACP pointer, this is stored at offset 36 + 4 * n (where n is the signature “FACP” ) of the RSDT
+The  PM1a_CNT is found at the 64th offset of the FACP table.
+
+### SLP_TYPa and  SLP_EN
+
+If we continue down from the PM1a_CNT we will find that, instead of going to offset 64, if we go to offset 68 we can find the SLP_TYPx from bits 10-12 and the SLP_EN can be found at bit 13.
+
+The DSDT pointer is held at offset 40 of the RDST. We need this because the SLP_TYPa is in the \_S5 AML encoded object which is held within the DSDT.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Exporting the DSDT
+
+
 ## ACPI Code Explanation
+
+do code here!!!!!!!!!!
+
+
+
+However if all of this is a bit too much you could in theory do outw( 0xB004, 0x0 | 0x2000 );. Its supposed to work on QEMU and bochs but I haven't been able to get it to work in my version of QEMU.
+
+
 ## Good ACPI Links
 + [ACPI OSDevWiki](https://wiki.osdev.org/ACPI)
++ [Amazing Poweroff Code Breakdown](https://forum.osdev.org/viewtopic.php?t=16990)
 
 
 
