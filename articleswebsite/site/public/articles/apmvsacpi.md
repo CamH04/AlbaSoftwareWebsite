@@ -60,7 +60,7 @@ https://www.ctyme.com/intr/cat-031.htm)
 
 ## Intro To ACPI (Advanced Configuration and Power Interface)
 
-The ACPI standard was birthed in 1996 as a standardised abstraction for an operating system to manage power states instead of having to use direct BIOS calls. ACPI replaces the APM spec as it allows for more dynamic and intelligent power management schemes when compared to APM. This all stem from ACPI handing control to the OS.
+The ACPI standard was birthed in 1996 as a standardised abstraction for an operating system to manage power states instead of having to use direct BIOS calls. ACPI replaces the APM spec as it allows for more dynamic and intelligent power management schemes when compared to APM. This all stems from ACPI handing control to the OS.
 
 The OS can manage separate components power state, this is done by having a set of ACPI tables in which the hardware is ID’d as well as its specifications being inserted into these tables, these are the tables the OS interacts with to understand in what way to manage power states for the hardware. There are many sets of tables some of them being optional, I will only cover the ones listed as required by arm64 systems in the linux kernel as of Oct 2020 [Link Here](https://web.archive.org/web/20201020091509/https://www.kernel.org/doc/html/latest/arm64/acpi_object_usage.html).
 
@@ -97,32 +97,35 @@ If we continue down from the PM1a_CNT we will find that, instead of going to off
 
 The DSDT pointer is held at offset 40 of the RDST. We need this because the SLP_TYPa is in the \_S5 AML encoded object which is held within the DSDT.
 
+### Exporting the \_S5 object from the DSDT
+As we saw erlier we need to find the SLP_TYPa value, this is found within the \_S5
+object inside the DSDT. The DSDT is encoded into AML of which im assuming you have not already written an interpreter for, for your OS. The way to do it without an interpreter is simple as all we have to do is a memory copy of the object, this can be done as /_(int) objects are only defined once within the DSDT. Dumping the content of the memory copy will yield the sacred  SLP_TYPa as seen in [this](https://forum.osdev.org/viewtopic.php?t=16990) bytecode dump :
+```
+ \_S5 object Dump
+
+| Field   | Hex | ASCII |
+| NameOP  | 08  |       |
+| `\`     | 5A  | Z     |
+| `_`     | 5F  | _     |
+| `S`     | 53  | S     |
+| `5`     | 35  | 5     |
+| `_`     | 5F  | _     |
 
 
+Package Struc Dump
 
+| Field        | Hex    | Details                          |
+|--------------|--------|----------------------------------|
+| PackageOP    | 12     |                                  |
+| PkgLength    | 0A     |                                  |
+| NumElements  | 04     | Number of elements in package    |
+| SLP_TYPa     | 0A 05  | byteprefix + value (0x05)        |
+| SLP_TYPb     | 0A 05  | byteprefix + value (0x05)        |
+| Reserved     | 0A 05  | byteprefix + reserved            |
+| Reserved     | 0A 05  | byteprefix + reserved            |
+```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Exporting the DSDT
-
-
-## ACPI Code Explanation
-
-do code here!!!!!!!!!!
-
+Note: if PM1b_CNT is != 0 you need to repeat it with SLP_TYPb
 
 
 However if all of this is a bit too much you could in theory do outw( 0xB004, 0x0 | 0x2000 );. Its supposed to work on QEMU and bochs but I haven't been able to get it to work in my version of QEMU.
@@ -133,7 +136,5 @@ However if all of this is a bit too much you could in theory do outw( 0xB004, 0x
 + [Amazing Poweroff Code Breakdown](https://forum.osdev.org/viewtopic.php?t=16990)
 
 
-
-## Analysis
 ## Conclusion
-
+APM is a very quick to implement solution to power management but it is an older standard (1992) which fails to hold up to the newer ACPI (1996 for first iteration) due to its reliance of direct BIOS interrupts, which is particularly archaic in comparison to ACPI as ACPI allows for power management to be handed over to the OS rather than the BIOS allowing for a much more intelligent, dynamic and scalable implementation of power management. In this case power management doesn't just mean ON or OFF, I can refer to how much power to provide to pieces of hardware interacting with the OS as well.
