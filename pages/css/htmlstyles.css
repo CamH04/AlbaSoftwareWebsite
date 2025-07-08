@@ -17,9 +17,17 @@ body {
     padding: 2rem;
 }
 
-.colour{
-    background-image:radial-gradient(at 44% 0%,rgba(255,184,122,.4) 0px,transparent 50%),radial-gradient(at 80% 0%,rgba(255, 31, 169, 0.1) 0px,transparent 50%),radial-gradient(at 80% 50%,rgba(241, 22, 95, 0.76) 0px,transparent 50%),radial-gradient(at 0% 100%,rgba(255,181,138,0) 0px,transparent 50%),radial-gradient(at 80% 100%,rgba(229, 46, 253, 0.685) 0px,transparent 50%),radial-gradient(at 0% 0%,rgba(255,133,167,.25) 0px,transparent 50%);
+.colour {
+    background-image:
+        radial-gradient(at 44% 0%, rgba(255,184,122,.4) 0px, transparent 50%),
+        radial-gradient(at 80% 0%, rgba(255, 31, 169, 0.1) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, rgba(241, 22, 95, 0.76) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, rgba(255,181,138,0) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, rgba(229, 46, 253, 0.685) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, rgba(255,133,167,.25) 0px, transparent 50%);
+    opacity: 0.9;
 }
+
 .center{
     display: flex;
     justify-content: center;
