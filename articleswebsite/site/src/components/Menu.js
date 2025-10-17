@@ -8,7 +8,6 @@ const Menu = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const menuItems = [
     { text: 'Home', link: '/', icon: '𓅓' },
-    { text: 'My Goals (2025)', link: '/article/mygoals2025.md', icon: '𓅓' },
     { text: 'The Heaviness Of Hearthian Life', link: '/article/outerwilds.md', icon: '🕮' },
     { text: 'APM vs APCI : What Is The Difference', link: '/article/apmvsacpi.md', icon: '💻' },
     { text: 'How AlbaOS Boots', link: '/article/howosboots.md', icon: '💻' },
@@ -16,8 +15,7 @@ const Menu = () => {
     { text: 'THE FNV-1A Hash In A Command Line System In The Case Of AlbaOS', link: '/article/fnv1a.md', icon: '💻' },
     { text: 'How To Make Your Own Command For The AlbaOS ACL', link: '/article/htmyoc.md', icon: '💻' },
     { text: 'Goldshadow Cybersecurity Analysis', link: '/article/cyber1.md', icon: '💻' },
-    { text: 'I dislike Electron and React Native and ill cry about it', link: '/article/desktopapps.md', icon: '💻' },
-    { text: 'My friend doesnt like MicroPy, this is his rant', link: '/article/micropy.md', icon: '💻' }
+    { text: 'I dislike Electron and React Native', link: '/article/desktopapps.md', icon: '💻' }
   ];
 
   const handleSearchChange = (event) => {
