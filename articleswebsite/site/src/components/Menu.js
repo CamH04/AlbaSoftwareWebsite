@@ -9,6 +9,7 @@ const Menu = () => {
   const menuItems = [
     { text: 'Home', link: '/', icon: '𓅓' },
     { text: 'My Goals (2025)', link: '/article/mygoals2025.md', icon: '𓅓' },
+    { text: 'The Heaviness Of Hearthian Life', link: '/article/outerwilds.md', icon: '🕮' },
     { text: 'APM vs APCI : What Is The Difference', link: '/article/apmvsacpi.md', icon: '💻' },
     { text: 'How AlbaOS Boots', link: '/article/howosboots.md', icon: '💻' },
     { text: 'How to Get Into Developing An Operating system', link: '/article/startosdev.md', icon: '💻' },
