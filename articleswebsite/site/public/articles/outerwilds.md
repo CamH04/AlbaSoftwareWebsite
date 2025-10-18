@@ -1,5 +1,3 @@
-Here’s your article with grammar, punctuation, and flow improved while preserving your tone and meaning.  
-
 ***
 
 **The Heaviness of Hearthian Life**  
