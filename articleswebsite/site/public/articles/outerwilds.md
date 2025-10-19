@@ -9,7 +9,7 @@
 Spoilers for *Outer Wilds* are written within this article. I recommend playing the game before reading, as the greatest emotion comes from the curiosity and discovery of piecing together the poignant and unusual solar system without any prior knowledge.  
 
 # Time and Repetition  
-The Hearthians, the alien race of the character you play as throughout *Outer Wilds*, are generally a content group of people living on a sublimely picturesque, Earth-like planet known as Timber Hearth. I say “generally” because, while they seem content, one could derive a sense of dread, fear, helplessness, and many other emotions from one of the game’s key mechanics—the 22-minute timer of each “life” before the sun goes supernova.  
+The Hearthians, the alien race of the character you play as throughout *Outer Wilds*, are generally a content group of people living on a sublimely picturesque, Earth-like planet known as Timber Hearth. I say “generally” because, while they seem content, one could derive a sense of dread, fear, helplessness, and many other emotions from one of the game’s key mechanics, the 22-minute timer of each “life” before the sun goes supernova.  
 
 We assume this solar system’s star is much larger than our own, but even so, its inevitable explosion is a cosmic and existential event. After the sun goes supernova, you wake up again—back at your sleeping bag, ready once more to “slip the surly bonds” (Magee JG, 1941) of Timber Hearth. This loop represents a literal instance of eternal return, forcing the player to confront the repetition of life and death, and to search for meaning within a cyclical existence.  
 
